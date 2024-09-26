@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}
+Hello! My name is Glenn 👋 
+{% endblock %}
+
+{% block subtitle %}
+I am a bioinformatics researcher developer in British Columbia, Canada.
+{% endblock %}
+
+
+{% block content %}
+<div class="aboutMe">
+    I am currently working in Michael Smith Genome Science Center in the Steif lab. I am currently working on developping software for analyzing single cell whole genome sequencing. I recently graduated with a Master's of Science from University of British Columbia (UBC). I am pationate about genomics, bioinformatics and data science. 
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="listHeader">Interest: 🔬</div>
+            <ul>
+                <li>Bioinformatics</li>
+                <li>Cancer genomics</li>
+                <li>Allele specific expression</li>
+                <li>Copy number variant</li>
+                <li>Long read sequencing</li>
+                <li>Single cell sequencing</li>
+                <li>Machine Learning</li>
+                <li>Data Science</li>
+            </ul>
+        </div>
+        <div class="col">
+            <div class="listHeader">Education: 🎓</div>
+            <ul>
+                <li>Master of Science, 2021</li>
+                <div class="university">University of British Columbia</div>
+                <div class="degree">Masters in Genome Science and Technology</div>
+                <br>
+                <li>Bachelor of Science, 2017</li>
+                <div class="university">University of Toronto</div>
+                <div class="degree">Specialist in Human biology (genomics)</div>
+                <div class="degree">Major in Cell and molcular biology</div>
+                <div class="degree">Minor in Psychology</div>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<div>
+    Contact me at glennkengmanchang@gmail.com
+    <div class="row">
+        <div class="col" id="icon">
+            <a href="https://github.com/Glenn032787/"><i class="fa-brands fa-square-github"></i></a>
+            <a href="https://scholar.google.ca/citations?user=vcb7qp4AAAAJ&hl=en"><i class="fa-solid fa-graduation-cap"></i></a>
+            <a href="https://www.linkedin.com/in/glenn-chang-a26ab3197/"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block style %}
+<style>
+    .university {
+        color: grey;
+        font-size: small;
+    }
+    .degree {
+        font-size: small;
+    }
+    .listHeader {
+        font-size: larger;
+        font-weight: bolder;
+        color: var(--dark-blue);
+    }
+    #icon a {
+        font-size:x-large;
+        color: var(--dark-blue); 
+        text-decoration: none;
+    }
+</style>
+{% endblock %}
+
+{% block script %}
+{% endblock script %}

@@ -27,6 +27,7 @@ urlpatterns = [
     path("", views.homepage, name="homepage"),
     path('research/', include("publications.urls")),
     path('project/', include("project.urls")),
+    path('about/', include("about.urls")),
 ]
 
 if settings.DEBUG:  # Only serve media files in development

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ project_data.title }}
+{% endblock %}
+
+
+
+{% block content %}
+
+{% if project_data.image %}
+    <img src="{{ project_data.image.url }}" alt="{{ project_data.title }}">
+{% endif %}
+<br>
+<br>
+{{ project_data.long_description | linebreaks}}
+
+<a href="{% url 'project' %}">Return</a>
+{% endblock %}
+
+{% block style %}
+<style>
+    img {
+        max-width: 75% ;
+    }
+</style>
+{% endblock %}
+
+{% block script %}
+{% endblock script %}

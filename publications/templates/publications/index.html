@@ -23,7 +23,15 @@ Research
 </div>
 <br>
 <div>
-    <div class="baseTitle">Publications</div>
+    <div class="baseTitle" style="display: flex; align-items: center; justify-content: space-between;">
+        <h2>Publications</h2>
+        {% if user.is_authenticated and user.is_superuser %}
+            <form method="POST" action="{% url 'update_database' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger btn-sm">Update database</button>
+            </form>
+        {% endif %}
+    </div>
     List of my previous publications. My google scholar can be found <a href="https://scholar.google.ca/citations?user=vcb7qp4AAAAJ&hl=en">here</a>.
 
     {% for publication in publications %}

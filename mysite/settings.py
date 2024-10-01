@@ -12,21 +12,26 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+
+env = environ.Env(
+    DEBUG=(bool, False)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w#vg$78e*yb(zcqxdooq#w+7*x_4*v&#s8vvn)8u$28iku-r$z'
+SECRET_KEY = env("SECRET_KEY", default = "change_me")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG", default = False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default = ["*"])
 
 
 # Application definition
@@ -46,6 +51,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,13 +84,25 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': env.db(default="sqlite:///db.sqlite3"),
 }
 
+LOGGING = {
+    'version': 1,
+    "disable_existing_loggers": False,
+    'handlers': {'console': {'class': "logging.streamhandler"}},
+    "loggers": {"": {"handlers": ["console"], "level": "DEBUG"}},
+}
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -120,12 +138,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = env.str("STATIC_URL", default="/static/")
+STATIC_ROOT = env.str("STATIC_ROOT", default=BASE_DIR / "staticfiles")
+
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_AUTOREFRESH = DEBUG
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL = '/media/'  # URL for accessing uploaded images
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Directory where uploaded files will be stored
+MEDIA_URL = env.str("MEDIA_URL", default='/media/')
+MEDIA_ROOT = env.str("MEDIA_ROOT", default=BASE_DIR / "media")
+

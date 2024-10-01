@@ -2,4 +2,4 @@
 
 set -e 
 
-gunicorn project.wsgi --log-file - 
+gunicorn mysite.wsgi --log-file - 

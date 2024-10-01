@@ -18,21 +18,15 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+# Take environment variables from .env file
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+SECRET_KEY = env("SECRET_KEY", default="change_me")
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY", default = "change_me")
+DEBUG = env("DEBUG", default=False)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG", default = False)
-
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default = ["*"])
-
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["*"])
 
 # Application definition
 
@@ -51,7 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -96,11 +90,12 @@ DATABASES = {
 }
 
 LOGGING = {
-    'version': 1,
+    "version": 1,
     "disable_existing_loggers": False,
-    'handlers': {'console': {'class': "logging.streamhandler"}},
+    "handlers": {"console": {"class": "logging.StreamHandler"}},
     "loggers": {"": {"handlers": ["console"], "level": "DEBUG"}},
 }
+
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
@@ -137,19 +132,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
 STATIC_URL = env.str("STATIC_URL", default="/static/")
 STATIC_ROOT = env.str("STATIC_ROOT", default=BASE_DIR / "staticfiles")
-
 WHITENOISE_USE_FINDERS = True
 WHITENOISE_AUTOREFRESH = DEBUG
 
+MEDIA_ROOT = env("MEDIA_ROOT", default=BASE_DIR / "media")
+MEDIA_URL = env("MEDIA_PATH", default="/media/")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-MEDIA_URL = env.str("MEDIA_URL", default='/media/')
-MEDIA_ROOT = env.str("MEDIA_ROOT", default=BASE_DIR / "media")
-

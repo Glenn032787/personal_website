@@ -1,4 +1,4 @@
-from .models import Publication
+from publications.models import Publication
 from scholarly import scholarly
 
 GOOGLE_SCHOLAR_ID = 'vcb7qp4AAAAJ'

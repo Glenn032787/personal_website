@@ -7,9 +7,7 @@ class Publication(models.Model):
     pub_url = models.CharField(max_length=200, blank=True)
     citation = models.CharField(max_length=200, blank=True)
     author = models.TextField(blank=True, null=True)
-    pub_year = models.IntegerField(blank=True, null=True)
-    google_scholar_id = models.CharField(max_length=200, blank=False, unique=True)
-    
+    pub_year = models.IntegerField(blank=True, null=True)    
 
     def __str__(self):
         return str(self.title)

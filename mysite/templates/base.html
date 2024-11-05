@@ -90,49 +90,23 @@
             font-size: smaller;
         }
 
-        /* For tablets or small laptops */
-        @media (max-width: 768px) {
-            .baseContainer {
-                width: 90%; 
-            }
-            #title a {
-                font-size: x-large;
-            }
-            #navigation a {
-                font-size: small;
-            }
-            .header {
-                height: 50px;
-            }
-            #navigationBar {
-                width: 90%;
-            }
-            #copyright {
-                font-size: x-small;
-            }
-            #social {
-                font-size: x-small;
-            }
-            .bottomHeader {
-                height: 15px;
-            }
-        }
         /* For phone and small screen */
-        @media (max-width: 576px) {
+        @media only screen and (max-width: 992px) {
             .baseContainer {
-                width: 90%; /* For phones, take up most of the screen */
-            }
-            #title a {
-                font-size: large; /* Decrease font size on small screens */
-            }
-            #navigation a {
-                font-size: small;
+                width: 90%;
+                margin: 0 auto;
             }
             #navigationBar {
                 width: 100%;
             }
-            #copyright {
-                font-size: xx-small;
+            .header {
+                height: 60px;
+            }
+            .bottomHeader {
+                height: 25px;
+            }
+            #social {
+                font-size: medium;
             }
         }
     </style> 
@@ -172,8 +146,8 @@
         <div class="bottomHeader">
             <div class="container-fluid">
                 <div class="row  justify-content-between align-items-center" id="bottomBar">
-                    <div class="col-lg-7 col-md-12" id="copyright">© 2024 Glenn. This work is licensed under CC BY NC ND 4.0</div>
-                    <div class="col-5 d-none d-lg-block text-end" id="social">
+                    <div class="col-7 d-none d-lg-block" id="copyright">© 2024 Glenn. This work is licensed under CC BY NC ND 4.0</div>
+                    <div class="col-lg-4 col-md-5 text-end" id="social">
                         <a href="https://www.linkedin.com/in/glenn-chang-a26ab3197/">linkedin</a>
                         <a href="mailto: glennkengmanchang@gmail.com">email</a>
                         <a href="https://github.com/Glenn032787/">github</a>

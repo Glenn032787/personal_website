@@ -4,7 +4,7 @@ from .models import Project
 
 # Create your views here.
 def index(request):
-    projects = Project.objects.all()
+    projects = Project.objects.all().order_by('-date')
 
     context = {
         'projects': projects

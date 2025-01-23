@@ -12,11 +12,11 @@ Research
 </div>
 <br>
 <div class="row">
-    <div class="col">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
         <div class='baseSubtitle'>Long read sequencing</div>
         Long-read sequencing brings key benefits to cancer genomics, including direct epigenetic marker identification, improved structural variant detection, and long-range phasing. As part of the Personalized Oncogenomics (POG) project, I used Nanopore sequencing to integrate phasing data with gene expression, uncovering allele-specific expression in over 130 tumor samples and identified frequent cis-acting variants regularing oncogene and tumor suppressors. 
     </div>
-    <div class="col">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
         <div class='baseSubtitle'>Single cell sequencing</div>
         Single-cell sequencing provides data at cellular resolution, offering insights unattainable through bulk sequencing. Using the DLP+ protocol, I am developing a tool to detect copy number changes in individual cells, a challenge due to low read depth per cell and the significant influence of the cell cycle. This is particularly important in cancer genomics, where understanding cellular heterogeneity sheds light on tumor evolution and treatment responses.
     </div>
@@ -37,7 +37,7 @@ Research
         <div class="abstract">
             {{ publication.abstract }}
         </div>
-        <a href="{{ publication.pub_url }}" class="btn btn-outline-secondary btn-sm" role="button" aria-disabled="true">DOI</a>
+        <a id="doi-button" href="{{ publication.pub_url }}" class="btn btn-outline-secondary btn-sm" role="button" aria-disabled="true">DOI</a>
     </div>
     {% endfor %}
 </div>
@@ -65,6 +65,31 @@ Research
     }
     .btn-sm {
         margin-top: 1%;
+    }
+    @media only screen and (max-width: 992px) {
+        .baseSubtitle {
+            margin-top: 5%;
+        }
+        #publication-container {
+            padding: 3%;
+            width: 100%; /* Ensure full width */
+            max-width: 100%; /* Prevent any width restrictions */
+            margin: 0; /* Remove margin to eliminate potential space limitations */
+            margin-top: 10px;
+        }
+        .metadata {
+            color: gray;
+            font-size: 25px;
+        }
+        .publicationTitle {
+            font-size: 25px;
+        }
+        .abstract {
+            display: None
+        }
+        #doi-button {
+            font-size:20px;
+        }
     }
 </style>
 {% endblock %}

@@ -33,17 +33,17 @@
             padding: 10px;
             font-weight: bolder;
         }
-        #navigation {
+        #navigation-comp {
             display: flex;
             justify-content: space-around; 
             align-items: center; 
         }
-        #navigation a {
+        #navigation-comp a {
             text-decoration: none;
             color: var(--white); 
             padding: 10px; 
         }
-        #navigation a:hover {
+        #navigation-comp a:hover {
             color: var(--blue); /* Change color on hover */
         }
         #navigationBar {
@@ -89,9 +89,15 @@
         #copyright {
             font-size: smaller;
         }
+        #navigation-phone {
+            display: none;
+        }
 
         /* For phone and small screen */
         @media only screen and (max-width: 992px) {
+            * {
+                font-size: 40px; /* Default font size for all elements */
+            }
             .baseContainer {
                 width: 90%;
                 margin: 0 auto;
@@ -100,14 +106,33 @@
                 width: 100%;
             }
             .header {
-                height: 60px;
+                height: 100px;
             }
             .bottomHeader {
-                height: 25px;
+                height: 20px;
             }
-            #social {
-                font-size: medium;
+            #social a {
+                display: None
             }
+            .baseTitle {
+                font-size: 60px
+            }
+            .baseSubtitle {
+                font-size: 45px
+            }
+            #title a {
+                font-size: 60px
+            }
+            #navigation-comp {
+                display: None
+            }
+            #navigation-phone {
+                display: flex;
+            }
+            .dropdown-item {
+                font-size: x-large;
+            }
+            
         }
     </style> 
     {% block style %}{% endblock style %}
@@ -122,10 +147,30 @@
                     </div>
                 
                     <!-- Navigation on the right -->
-                    <div class="col-6 col-md-3 text-end" id="navigation">
+                    <div class="col-6 col-md-3 text-end" id="navigation-comp">
                         <a href="{% url 'about' %}" id="nav-about">About</a> 
                         <a href="{% url 'research' %}" id="nav-research">Research</a>
                         <a href="{% url 'project' %}" id="nav-project">Project</a>
+                    </div>
+
+                    <div class="col-6 col-md-3 text-end" id="navigation-phone">
+                        <div class="dropdown ms-auto">
+                            <!-- Mobile View -->
+                            <button
+                                class="btn btn-light dropdown-toggle"
+                                type="button"
+                                id="dropdownMenuButton"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                <i class="fa-solid fa-bars"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="{% url 'about' %}">About</a></li>
+                                <li><a class="dropdown-item" href="{% url 'research' %}">Research</a></li>
+                                <li><a class="dropdown-item" href="{% url 'project' %}">Project</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -157,7 +202,12 @@
             </div>
         </div>        
     </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+
+    
 
     {% block script %}{% endblock script %}
 

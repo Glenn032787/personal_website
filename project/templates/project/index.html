@@ -8,7 +8,7 @@ Projects
 
 {% block content %}
 Collection of projects that I have worked on:
-<div class="container mt-4">
+<div class="container mt-4" id='project-container'>
     <div class="row">
         {% for project in projects %}
         <div class="col-auto mb-3">
@@ -45,6 +45,19 @@ Collection of projects that I have worked on:
         font-size: small;
         color: var(--black);
     }
+    @media only screen and (max-width: 992px) {
+        .card-title a {
+            font-size: 40px;
+            color: var(--blue);
+            text-decoration: none;
+        }
+        .card-text {
+            font-size: 30px;
+            color: var(--black);
+        }
+
+    }
+
 </style>
 {% endblock %}
 

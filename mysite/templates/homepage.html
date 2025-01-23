@@ -15,9 +15,9 @@ I am a bioinformatics researcher developer in British Columbia, Canada.
 </div>
 <br>
 <br>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
             <div class="listHeader">Interest: 🔬</div>
             <ul>
                 <li>Bioinformatics</li>
@@ -30,9 +30,9 @@ I am a bioinformatics researcher developer in British Columbia, Canada.
                 <li>Data Science</li>
             </ul>
         </div>
-        <div class="col">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
             <div class="listHeader">Education: 🎓</div>
-            <ul>
+            <ul class="university-list">
                 <li>Master of Science, 2021</li>
                 <div class="university">University of British Columbia</div>
                 <div class="degree">Masters in Genome Science and Technology</div>
@@ -46,6 +46,7 @@ I am a bioinformatics researcher developer in British Columbia, Canada.
         </div>
     </div>
 </div>
+
 <br>
 <div>
     Contact me at <a href="mailto:glennkengmanchang@gmail.com">glennkengmanchang@gmail.com</a>
@@ -79,6 +80,45 @@ I am a bioinformatics researcher developer in British Columbia, Canada.
         font-size:x-large;
         color: var(--dark-blue); 
         text-decoration: none;
+    }
+    
+    @media only screen and (max-width: 992px) {
+        .university {
+            font-size: 35px;
+        }
+        .degree {
+            font-size: 35px;
+        }
+        #icon a i {
+            font-size:50px;
+        }
+        .listHeader {
+            text-align: center;  /* Centers the header text */
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        ul {
+            list-style-type: none; /* Removes bullet points */
+            padding: 0;
+            text-align: center; /* Center the content inside the list */
+        }
+        
+        li {
+            margin-bottom: 10px; /* Space between list items */
+        }
+        
+        .university, .degree {
+            display: inline-block; /* Makes these elements inline to center them */
+            text-align: center;
+            font-style: italic;
+            margin-left: 20px;
+        }
+        .university-list li {
+            margin-top: 30px;
+            font-weight: bolder;
+        }
+
     }
 </style>
 {% endblock %}

@@ -106,66 +106,66 @@ About me
 <div>
     <div class="aboutHeader">Volunteer Experiences</div>
     <div class="volunteer" style="display: flex; justify-content: space-between;">
-        <div style="text-align: left;">
-            <strong>Committee Member</strong> | Common Kitchen Committee, Green College | Vancouver, BC
+        <div class="volunteer-text" style="text-align: left;">
+            <strong>Committee Member</strong> | Green College | Vancouver, BC
         </div>
-        <div style="text-align: right;">
+        <div class="volunteer-date" style="text-align: right;">
             2021 - 2023
         </div>
     </div>
     <div class="volunteer" style="display: flex; justify-content: space-between;">
-        <div style="text-align: left;">
+        <div class="volunteer-text" style="text-align: left;">
             <strong>Co-Chair</strong> | Intercollegiate Committee, Green College | Vancouver, BC
         </div>
-        <div style="text-align: right;">
+        <div class="volunteer-date" style="text-align: right;">
             2021 - 2022
         </div>
     </div>
     <div class="volunteer" style="display: flex; justify-content: space-between;">
-        <div style="text-align: left;">
+        <div class="volunteer-text" style="text-align: left;">
             <strong>Organizer</strong> | BIG22 conference, UBC | Vancouver, BC	
         </div>
-        <div style="text-align: right;">
+        <div class="volunteer-date" style="text-align: right;">
             2021 - 2022
         </div>
     </div>
     <div class="volunteer" style="display: flex; justify-content: space-between;">
-        <div style="text-align: left;">
+        <div class="volunteer-text" style="text-align: left;">
             <strong>Volunteer Tutor</strong> | Education to Inspire Tutoring | Toronto, ON (virtual)	
         </div>
-        <div style="text-align: right;">
+        <div class="volunteer-date" style="text-align: right;">
             2020 - 2021
         </div>
     </div>
     <div class="volunteer" style="display: flex; justify-content: space-between;">
-        <div style="text-align: left;">
+        <div class="volunteer-text" style="text-align: left;">
             <strong>Volunteer</strong> | Canadian Cancer Society | Toronto, ON
         </div>
-        <div style="text-align: right;">
+        <div class="volunteer-date" style="text-align: right;">
             2019 - 2019
         </div>
     </div>
     <div class="volunteer" style="display: flex; justify-content: space-between;">
-        <div style="text-align: left;">
+        <div class="volunteer-text" style="text-align: left;">
             <strong>Member</strong> | Plant Biotechnology Focus Group | Toronto, ON
         </div>
-        <div style="text-align: right;">
+        <div class="volunteer-date" style="text-align: right;">
             2018 - 2021
         </div>
     </div>
     <div class="volunteer" style="display: flex; justify-content: space-between;">
-        <div style="text-align: left;">
+        <div class="volunteer-text" style="text-align: left;">
             <strong>Volunteer</strong> | UHN Multi-organ Transplant Clinic | Toronto, ON
         </div>
-        <div style="text-align: right;">
+        <div class="volunteer-date" style="text-align: right;">
             2018 - 2020
         </div>
     </div>
     <div class="volunteer" style="display: flex; justify-content: space-between;">
-        <div style="text-align: left;">
+        <div class="volunteer-text" style="text-align: left;">
             <strong>Mentorship</strong> | Medical Science Student Union | Toronto, ON
         </div>
-        <div style="text-align: right;">
+        <div class="volunteer-date" style="text-align: right;">
             2018 - 2019
         </div>
     </div>
@@ -196,6 +196,30 @@ About me
     }
     strong {
         color: var(--medium-blue);
+    }
+    @media only screen and (max-width: 992px) {
+        .aboutHeader {
+            font-size: 45px;
+        }
+        .aboutTitle {
+            font-size: 45px;
+        }
+        .aboutSubtitle {
+            font-size: 30px;
+        }
+        .aboutWorkContent {
+            font-size: 40px;
+        }
+        .volunteer-date {
+            font-size: 20px;
+        }
+        .volunteer-text {
+            font-size: 25px;
+        }
+        .volunteer-text strong {
+            font-size: 30px;
+        }
+
     }
 </style>
 {% endblock %}
